@@ -2,28 +2,109 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@font-face {
+  font-family: 'Baybayin';
+  src: url('../public/fonts/BAYBAYIN-SISIL_07012018_1032_UNICODE.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'LeagueSpartan';
+  src: url('../public/fonts/LeagueSpartan-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Playlist';
+  src: url('../public/fonts/Playlist-Script.otf') format('opentype');
 }
 
-@media (prefers-color-scheme: dark) {
+:root {
+  --foreground-hex: #222831;
+  --background-hex: #D9D9D9;
+  --sub-hex: #31363f;
+  --text-1-hex: #222831;
+  --text-2-hex: #D9D9D9;
+}
+
+@media (prefers-color-scheme: light) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    ---foreground-hex: #D9D9D9;
+    --background-hex: #222831;
+    --sub-hex: #9b9b9b;
+    --text-1-hex: #D9D9D9;
+    --text-2-hex: #222831;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+header {
+  background-color: var(--background-hex);
+  background: linear-gradient(var(--background-hex) 80%, var(--foreground-hex));
+  color: var(--text-1-hex);
+}
+
+main {
+  background-color: var(--foreground-hex);
+  color: var(--text-2-hex);
+}
+
+main button {
+  background-color: var(--background-hex);
+  color: var(--text-1-hex);
+}
+
+main button:hover {
+  background-color: var(--sub-hex);
+  color: var(--background-hex);
+}
+
+/* ================================================================= Loading screen */
+
+.loading_screen{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #222831;
+  z-index: 100;
+  overflow: hidden;
+  animation: end-loading 2s 10s;
+}
+
+.loading_screen_logo{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.logo path{
+  stroke-dashoffset: 1250;
+  stroke-dasharray: 1250;
+  fill-opacity: 0;
+  animation: draw-fill 10s forwards;
+}
+
+@keyframes draw-fill {
+  0% {
+      stroke-dashoffset: 1250;
+      stroke-dasharray: 1250;
+      fill-opacity: 0;
+  }
+  70% {
+      stroke-dashoffset: 0;
+      stroke-dasharray: 0;
+      fill-opacity: 0;
+  }
+  100% {
+      stroke-dashoffset: 0;
+      stroke-dasharray: 0;
+      fill-opacity: 1;
+  }
+}
+
+@keyframes end-loading {
+  to {
+      background-color: #eee;
+      opacity: 0;
+  }
 }
 
 /*Loading*/
@@ -42,7 +123,7 @@ body {
   height: calc(100% - 9.9px);
   border: 5px solid transparent;
   border-radius: 50%;
-  border-top-color: #222831;
+  border-top-color: var(---foreground-hex);
   animation: spin 5s cubic-bezier(0.17, 0.49, 0.96, 0.79) infinite;
 }
 
