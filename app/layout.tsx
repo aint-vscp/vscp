@@ -2,12 +2,6 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 
-import Header from '../components/header'
-import Nav from '../components/nav'
-import Home from './home'
-import Footer from '../components/footer'
-import { LoadingScreen } from '../components/loadingScreen';
-
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -22,18 +16,18 @@ export const metadata: Metadata = {
 
 export const viewport = 'width=device-width, initial-scale=1';
 
-export default function RootLayout() {
+export default function RootLayout ({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html lang="en">
       <head>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
       </head>
       <body className={inter.className}>
-        <Header/>
-        <Nav/>
-        <Home/>
-        <Footer/>
-        <LoadingScreen />
+        {children}
       </body>
     </html>
   )
