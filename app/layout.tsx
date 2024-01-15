@@ -2,11 +2,11 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 
-import Header from './header'
-import Nav from './nav'
+import Header from '../components/header'
+import Nav from '../components/nav'
 import Home from './home'
-import Footer from './footer'
-//import { LoadingScreen } from './loadingScreen';
+import Footer from '../components/footer'
+import { LoadingScreen } from '../components/loadingScreen';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -33,7 +33,7 @@ export default function RootLayout() {
         <Nav/>
         <Home/>
         <Footer/>
-        {/*<LoadingScreen />*/}
+        <LoadingScreen />
       </body>
     </html>
   )
