@@ -6,7 +6,7 @@ import Header from './header'
 import Nav from './nav'
 import Home from './home'
 import Footer from './footer'
-import { LoadingScreen } from './loadingScreen';
+//import { LoadingScreen } from './loadingScreen';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -33,7 +33,7 @@ export default function RootLayout() {
         <Nav/>
         <Home/>
         <Footer/>
-        <LoadingScreen />
+        {/*<LoadingScreen />*/}
       </body>
     </html>
   )
