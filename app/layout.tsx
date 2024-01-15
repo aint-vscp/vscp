@@ -6,7 +6,7 @@ import Header from './header'
 import Nav from './nav'
 import Home from './home'
 import Footer from './footer'
-import { LoadingScreen } from '../components/loadingScreen';
+import { LoadingScreen } from './loadingScreen';
 
 const inter = Inter({ subsets: ['latin'] })
 
