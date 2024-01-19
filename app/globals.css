@@ -23,16 +23,6 @@
   --text-2-hex: #D9D9D9;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    ---foreground-hex: #D9D9D9;
-    --background-hex: #222831;
-    --sub-hex: #9b9b9b;
-    --text-1-hex: #D9D9D9;
-    --text-2-hex: #222831;
-  }
-}
-
 header {
   background-color: var(--background-hex);
   background: linear-gradient(var(--background-hex) 80%, var(--foreground-hex));
